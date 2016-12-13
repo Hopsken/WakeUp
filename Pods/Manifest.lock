@@ -5,10 +5,12 @@ PODS:
   - LeanCloud/Storage (10.0.0):
     - Alamofire (~> 4.2.0)
   - Spring (1.0.3)
+  - TPKeyboardAvoiding (1.3)
 
 DEPENDENCIES:
   - LeanCloud (from `https://github.com/leancloud/swift-sdk.git`)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - TPKeyboardAvoiding
 
 EXTERNAL SOURCES:
   LeanCloud:
@@ -29,7 +31,8 @@ SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   LeanCloud: 72ec52e0d68c3ca886e60c55742b142bfc88d8a0
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
 
-PODFILE CHECKSUM: b99ba337e58de2adca6bd34b876c4d4898289656
+PODFILE CHECKSUM: 4edea565078091b57d14273f37d8388d4d19b290
 
 COCOAPODS: 1.1.1

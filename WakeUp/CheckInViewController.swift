@@ -11,6 +11,8 @@ import LeanCloud
 import Spring
 
 class CheckInViewController: UIViewController {
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue){   
+    }
     
     var currentUser: LCUser?
     
@@ -18,6 +20,9 @@ class CheckInViewController: UIViewController {
     @IBOutlet weak var userNameButton: UIButton!
     @IBOutlet weak var checkButton: DesignableButton!
     
+    @IBAction func loginButtonDidTouch(_ sender: Any) {
+        self.performSegue(withIdentifier: "LoginSegue", sender: self)
+    }
     @IBAction func CheckInButtonDidTouch(_ sender: Any) {
         if let button = checkButton {
             button.animation = "pop"
@@ -25,13 +30,11 @@ class CheckInViewController: UIViewController {
         }
         if let user = LCUser.current {
             self.checkIn(user: user)
-        } else {
-            print("No User")
         }
     }
     
     @IBAction func SignInButtonDidTouch(_ sender: Any) {
-        loginAlert()
+        self.performSegue(withIdentifier: "LoginSegue", sender: self)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -41,17 +44,39 @@ class CheckInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let defaults = UserDefaults.standard
         if currentUser == nil {
-            self.loginAlert()
-        }
-        
-        if let currentUser = LCUser.current {
-            let username = currentUser.username
-            
-            userNameButton.setTitle(username?.value, for: .normal)
+            if let username = defaults.value(forKey: "username"), let password = defaults.value(forKey: "password") {
+                // Login
+                let username = username as! String
+                let password = password as! String
+                
+                LCUser.logIn(username: username, password: password) { result in
+                    switch result {
+                    case .success( let user ):
+                        // Query CheckIn days
+                        let query = LCQuery(className: "checkIn")
+                        query.whereKey("username", .equalTo(username))
+                        let checkInCount = query.count().intValue
+                        
+                        // Set User Default
+                        let defaults = UserDefaults.standard
+                        defaults.set(username, forKey: "username")
+                        defaults.set(password, forKey: "password")
+                        defaults.set(checkInCount, forKey: "checkInDays")
+                        defaults.synchronize()
+                        
+                        self.currentUser = user
+                        
+                        self.userNameButton.setTitle(user.username?.value, for: .normal)
+                        self.userNameButton.isEnabled = false
+                    case .failure:
+                        self.performSegue(withIdentifier: "LoginSegue", sender: self)
+            }
         }
     }
-    
+    }
+    }
     
     // MARK: CheckIn
     func checkIn(user: LCUser) {
@@ -144,106 +169,5 @@ class CheckInViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    // MARK: Login
-    func loginAlert() {
-        let alert = UIAlertController(title: "登录", message: "", preferredStyle:.alert)
-        
-        let cancelAction = UIAlertAction(title: "取消", style: .destructive)
-        let signAction = UIAlertAction(title: "注册", style: .default) { (_) in self.signUpAlert()}
-        let loginAction = UIAlertAction(title: "登录", style: .default) { (_) in
-            let usernameTextField = alert.textFields![0] as UITextField
-            let passwordTextField = alert.textFields![1] as UITextField
-            
-            if let username = usernameTextField.text, let password = passwordTextField.text{
-                if username != "", password != "" {
-                    LCUser.logIn(username: username, password: password) { result in
-                        switch result {
-                        case .success(let user):
-                            self.userNameButton.setTitle(user.username?.value, for: .normal)
-                            self.userNameButton.isEnabled = false
-                            
-                            let query = LCQuery(className: "checkIn")
-                            query.whereKey("username", .equalTo(username))
-                            let checkInCount = query.count().intValue
-                            self.CheckInDays.text = String(checkInCount)
-                        case .failure(let error):
-                            alert.message = error.reason
-                            self.present(alert, animated: true, completion: nil)
-                        }
-                    }
-                } else {
-                    alert.message = "用户名或密码不正确"
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-        }
-        
-        alert.addAction(loginAction)
-        alert.addAction(signAction)
-        alert.addAction(cancelAction)
-        
-        alert.addTextField{ (configurationTextField) in
-            configurationTextField.placeholder = "用户名"
-        }
-        alert.addTextField{ (configurationTextField) in
-            configurationTextField.placeholder = "密码"
-            configurationTextField.isSecureTextEntry = true
-        }
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
-    
-    //MARK: SignUp
-    func signUpAlert() {
-        let alert = UIAlertController(title: "注册", message: "", preferredStyle:.alert)
-        
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel)
-        let loginAction = UIAlertAction(title: "注册", style: .default) { (_) in
-            let usernameTextField = alert.textFields![0] as UITextField
-            let phoneTextField = alert.textFields![1] as UITextField
-            let passwordTextField = alert.textFields![2] as UITextField
-            
-            if let username = usernameTextField.text, let phoneNumber = phoneTextField.text, let password = passwordTextField.text{
-                if username != "", phoneNumber.length == 11, password != "" {
-                    let user = LCUser()
-                    
-                    user.username = LCString(username)
-                    user.password = LCString(password)
-                    user.mobilePhoneNumber = LCString(phoneNumber)
-                    
-                    user.signUp() { result in
-                        switch result {
-                        case .success:
-                            self.loginAlert()
-                        case .failure(let error):
-                            alert.message = error.reason
-                            self.present(alert, animated: true, completion: nil)
-                        }
-                    }
-                } else {
-                    alert.message = "注册失败，请重试"
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-        }
-        
-        alert.addAction(loginAction)
-        alert.addAction(cancelAction)
-        
-        alert.addTextField{ (configurationTextField) in
-            configurationTextField.placeholder = "用户名"
-        }
-        alert.addTextField{ (configurationTextField) in
-            configurationTextField.placeholder = "手机号"
-            configurationTextField.keyboardType = .phonePad
-        }
-        alert.addTextField{ (configurationTextField) in
-            configurationTextField.placeholder = "密码"
-            configurationTextField.isSecureTextEntry = true
-        }
-        
-        present(alert, animated: true, completion: nil)
-    }
     
 }
