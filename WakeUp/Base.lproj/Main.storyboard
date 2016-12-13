@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Check In View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CheckInViewController" customModule="WakeUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Deer" translatesAutoresizingMaskIntoConstraints="NO" id="T3a-VI-aeA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MJ-Lt-3sN">
+                                <rect key="frame" x="164" y="205" width="48" height="110"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="80"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckInCircle" translatesAutoresizingMaskIntoConstraints="NO" id="xyR-R3-PJD">
+                                <rect key="frame" x="68" y="140" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="aR0-Zy-5hm"/>
+                                    <constraint firstAttribute="width" constant="240" id="yMb-EC-8tg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rZ-SI-na2" customClass="DesignableButton" customModule="Spring">
+                                <rect key="frame" x="117" y="445" width="140" height="45"/>
+                                <color key="backgroundColor" red="0.92732083797454834" green="0.29176738858222961" blue="0.28370702266693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="HWz-fV-VrX"/>
+                                    <constraint firstAttribute="width" constant="140" id="XC0-DL-OSb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="早起签到">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="CheckInButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JiT-wN-iRi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STAY HUNGRY, STAY FOOLISH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmq-Vw-6Lk">
+                                <rect key="frame" x="102" y="546" width="171" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQE-4T-6gz">
+                                <rect key="frame" x="118" y="597" width="140" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VxM-If-JJf"/>
+                                    <constraint firstAttribute="width" constant="140" id="gO7-v2-u2C"/>
+                                </constraints>
+                                <state key="normal" title="登录">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignInButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qer-pR-AHK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4rZ-SI-na2" firstAttribute="top" secondItem="xyR-R3-PJD" secondAttribute="bottom" constant="65" id="1bM-a2-z3t"/>
+                            <constraint firstItem="xyR-R3-PJD" firstAttribute="leading" secondItem="4rZ-SI-na2" secondAttribute="trailing" constant="-189" id="6Xg-3S-r0v"/>
+                            <constraint firstAttribute="trailing" secondItem="T3a-VI-aeA" secondAttribute="trailing" id="FAe-L9-CV6"/>
+                            <constraint firstItem="4rZ-SI-na2" firstAttribute="centerX" secondItem="fmq-Vw-6Lk" secondAttribute="centerX" id="FOJ-NT-HyE"/>
+                            <constraint firstItem="xyR-R3-PJD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FmA-4p-uud"/>
+                            <constraint firstItem="xyR-R3-PJD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="120" id="JwY-yx-3K2"/>
+                            <constraint firstItem="2MJ-Lt-3sN" firstAttribute="centerY" secondItem="xyR-R3-PJD" secondAttribute="centerY" id="QTR-zu-g2y"/>
+                            <constraint firstItem="4rZ-SI-na2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YUO-rI-afP"/>
+                            <constraint firstItem="T3a-VI-aeA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gb2-0T-H3i"/>
+                            <constraint firstItem="XQE-4T-6gz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nTS-xM-Zrp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="T3a-VI-aeA" secondAttribute="bottom" id="oS2-nu-pUB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XQE-4T-6gz" secondAttribute="bottom" constant="40" id="ocX-wx-4GV"/>
+                            <constraint firstItem="fmq-Vw-6Lk" firstAttribute="top" secondItem="4rZ-SI-na2" secondAttribute="bottom" constant="56" id="qzv-Jt-1mm"/>
+                            <constraint firstItem="2MJ-Lt-3sN" firstAttribute="centerX" secondItem="xyR-R3-PJD" secondAttribute="centerX" id="ttf-WV-CX5"/>
+                            <constraint firstItem="T3a-VI-aeA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uVr-lf-SE4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CheckInDays" destination="2MJ-Lt-3sN" id="3nn-FO-pN8"/>
+                        <outlet property="checkButton" destination="4rZ-SI-na2" id="v70-Ue-ov2"/>
+                        <outlet property="userNameButton" destination="XQE-4T-6gz" id="O6u-5A-2gX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="48.799999999999997" y="122.78860569715144"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CheckInCircle" width="252" height="252"/>
+        <image name="Deer" width="375" height="667"/>
+    </resources>
+</document>

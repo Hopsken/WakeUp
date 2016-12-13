@@ -1,0 +1,35 @@
+PODS:
+  - Alamofire (4.2.0)
+  - LeanCloud (10.0.0):
+    - LeanCloud/Storage (= 10.0.0)
+  - LeanCloud/Storage (10.0.0):
+    - Alamofire (~> 4.2.0)
+  - Spring (1.0.3)
+
+DEPENDENCIES:
+  - LeanCloud (from `https://github.com/leancloud/swift-sdk.git`)
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+
+EXTERNAL SOURCES:
+  LeanCloud:
+    :git: https://github.com/leancloud/swift-sdk.git
+  Spring:
+    :branch: swift3
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  LeanCloud:
+    :commit: 638fe5d81aea923c419ea4182e42ba1ba415fff1
+    :git: https://github.com/leancloud/swift-sdk.git
+  Spring:
+    :commit: 3a9227c6e9157e7b47f5ac1ee5abab2a56b50002
+    :git: https://github.com/MengTo/Spring.git
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  LeanCloud: 72ec52e0d68c3ca886e60c55742b142bfc88d8a0
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+
+PODFILE CHECKSUM: b99ba337e58de2adca6bd34b876c4d4898289656
+
+COCOAPODS: 1.1.1
