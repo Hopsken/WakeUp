@@ -3,6 +3,7 @@ use_frameworks!
 
 target 'WakeUp' do
     pod 'LeanCloud', :git => "https://github.com/leancloud/swift-sdk.git"
+    pod 'TPKeyboardAvoiding'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 end
 
