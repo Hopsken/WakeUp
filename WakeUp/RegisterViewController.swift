@@ -13,8 +13,8 @@ import LeanCloud
 class RegisterViewController: UIViewController {
     @IBOutlet weak var usernameTextField: DesignableTextField!
     @IBOutlet weak var passwordTextField: DesignableTextField!
+    @IBOutlet weak var message: UILabel!  
     @IBOutlet weak var registerButton: DesignableButton!
-    @IBOutlet weak var message: UILabel!
     
     @IBAction func registerButtonDidTouch(_ sender: Any) {
         let button = self.registerButton
@@ -32,22 +32,25 @@ class RegisterViewController: UIViewController {
                 user.signUp() { result in
                     switch result {
                     case .success:
-                        // Query CheckIn days
-                        let query = LCQuery(className: "checkIn")
-                        query.whereKey("username", .equalTo(username))
-                        let checkInCount = query.count().intValue
-                        
                         // Set User Default
-                        let defaults = UserDefaults.standard
                         defaults.set(username, forKey: "username")
                         defaults.set(password, forKey: "password")
-                        defaults.set(checkInCount, forKey: "checkInDays")
                         defaults.synchronize()
-                                                
-                        self.performSegue(withIdentifier: "unwindToCheckInAfterRegister", sender: self)
                         
-                        //TODO: prepare for Segue LCUser
                         
+                        //更新 UserClass 表
+                        let userClass = LCObject(className: "UserClass")
+                        
+                        userClass.set("username", value: username)
+                        
+                        userClass.save { result in
+                            switch result {
+                            case .success:
+                                self.performSegue(withIdentifier: "unwindToUserAfterRegister", sender: self)
+                            case .failure( let error ):
+                                self.message.text = "注册失败：\(error)"
+                            }
+                        }
                     case .failure(let error):
                         if let error = error.reason {
                             self.message.text = "注册失败：\(error)"
@@ -56,7 +59,7 @@ class RegisterViewController: UIViewController {
                 }
             }
         }
-        
     }
+    
 
 }
