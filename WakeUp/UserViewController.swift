@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserViewController: UIViewController {
     
@@ -30,19 +31,9 @@ class UserViewController: UIViewController {
             
             //Get Avatar
             if let imageURLString = userInfo["avatar"] {
-                if let imageURL: URL = URL(string: imageURLString)
-                {
-                DispatchQueue.global(qos: .userInitiated).async {
-                    let imageData: NSData = NSData(contentsOf: imageURL)!
-                
-                
-                    DispatchQueue.main.async {
-                        let image = UIImage(data: imageData as Data)
-                        self.avatarImageView.image = image
-                    }
-                }
-                } else {
-                    self.avatarImageView.image = UIImage(named: "WakeUpLogo")
+                if imageURLString.hasPrefix("https://") {
+                    let url = URL(string: imageURLString)!
+                    avatarImageView.kf.se
                 }
             }
         } else {
