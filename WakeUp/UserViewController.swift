@@ -9,7 +9,9 @@
 import UIKit
 import Kingfisher
 
-class UserViewController: UIViewController {
+var profileOptions = [["我的签到", "动态"], ["设置", "意见反馈"], ["关于", "分享"]]
+
+class UserViewController: UIViewController{
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue){
     }
@@ -20,7 +22,13 @@ class UserViewController: UIViewController {
     @IBOutlet weak var checkInDaysLabel: UILabel!
     @IBOutlet weak var totalCheckInDaysLabel: UILabel!
     
+    @IBOutlet weak var userTableView: UITableView!
+    
     override func viewWillAppear(_ animated: Bool) {
+        
+        userTableView.dataSource = self
+        userTableView.delegate = self
+        
         if currentUser != nil {
             usernameButton.setTitle(userInfo["username"], for: .normal)
             usernameButton.isEnabled = false
@@ -73,5 +81,30 @@ class UserViewController: UIViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
+}
+
+extension UserViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return profileOptions.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return profileOptions[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "userPageCell") ?? UITableViewCell(style: .subtitle, reuseIdentifier: "userPageCell")
+        
+        cell.textLabel?.text = profileOptions[indexPath.section][indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

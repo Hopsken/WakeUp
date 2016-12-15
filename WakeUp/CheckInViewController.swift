@@ -12,7 +12,6 @@ import Spring
 
 class CheckInViewController: UIViewController {
     
-    var currentUser2: LCUser?
     var isFirstLaunch = true
     
     
@@ -27,7 +26,7 @@ class CheckInViewController: UIViewController {
         if let user = currentUser {
             self.checkIn(user: user)
         } else {
-            self.alert(info: "请先登录")
+            showAlert(info: "请先登录")
         }
     }
     
@@ -49,18 +48,12 @@ class CheckInViewController: UIViewController {
                     LCUser.logIn(username: username, password: password) { result in
                         switch result {
                         case .success( let user ):
-                            // Query CheckIn days
-                            let query = LCQuery(className: "checkIn")
-                            query.whereKey("username", .equalTo(username))
-                            let checkInCount = query.count().intValue
-                            userInfo["checkInDays"] = String(checkInCount)
-                            self.CheckInDays.text = userInfo["checkInDays"]
-                            
                             // Set User Default
+
                             defaults.set(username, forKey: "username")
                             defaults.set(password, forKey: "password")
                             defaults.synchronize()
-                            
+
                             
                             // Set User Info
                             let userQuery = LCQuery(className: "UserClass")
@@ -87,7 +80,16 @@ class CheckInViewController: UIViewController {
                                     userInfo["birthday"] = birthday.value
                                     let campus = info.get("campus") as! LCString
                                     userInfo["camnpus"] = campus.value
-                                    print("Success")
+                                    
+                                    let userID = info.get("objectId") as! LCString
+                                    userInfo["userID"] = userID.value
+                                    
+                                    // Query CheckIn days
+                                    let query = LCQuery(className: "checkIn")
+                                    query.whereKey("UserID", .equalTo(userID.value))
+                                    let checkInCount = query.count().intValue
+                                    userInfo["checkInDays"] = String(checkInCount)
+                                    self.CheckInDays.text = userInfo["checkInDays"]
                                 case .failure:// Error when In UserClass
                                     break
                                 }
@@ -113,7 +115,7 @@ class CheckInViewController: UIViewController {
         // CheckTime
         let Timer = getTimes()
         if Timer["hour"]!<6 || Timer["hour"]!>7 || (Timer["hour"]!==7 && Timer["minute"]!>20) {
-            self.alert(info: "现在不是签到时间")
+            showAlert(info: "现在不是签到时间")
             return
         }
         
@@ -151,36 +153,34 @@ class CheckInViewController: UIViewController {
     
     func checkInService(user: LCUser) {
         let username = user.username?.value
+        let userID = user.objectId?.value
         let checkIn = LCObject(className: "checkIn")
         
         checkIn.set("username", value: username)
+        checkIn.set("UserID", value: userID)
         
         checkIn.save { result in
             switch result {
             case .success:
                 let query = LCQuery(className: "checkIn")
-                query.whereKey("username", .equalTo(username!))
+                query.whereKey("UserID", .equalTo(userID!))
                 let checkInCount = query.count().intValue
                 self.CheckInDays.text = String(checkInCount)
             case .failure(let error):
-                self.alert(info: error.reason!)
+                self.showAlert(info: error.reason!)
             }
         }
-
+        
     }
     
-
     
-    // MARK: alertFunc
-    func alert(info: String) {
+    func showAlert(info: String) {
         let alertController = UIAlertController(title: info, message: "", preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel)
         alertController.addAction(cancelAction)
         
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
-    
-    
     
 }

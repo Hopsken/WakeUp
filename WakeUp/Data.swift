@@ -21,6 +21,7 @@ var userInfo: [String: String] = [
     "credit": "0",
     "campus": "苏州大学 本部",
     "birthday": "2015-11-11",
-    "avatar": "https://ooo.0o0.ooo/2016/12/14/5851678ada138.jpg"
+    "avatar": "https://ooo.0o0.ooo/2016/12/14/5851678ada138.jpg",
+    "userID": ""
     ]
 

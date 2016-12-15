@@ -13,7 +13,7 @@ import LeanCloud
 class LogInViewController: UIViewController {
     @IBOutlet weak var userNameTextField: DesignableTextField!
     @IBOutlet weak var passwordTextField: DesignableTextField!
-
+    
     @IBOutlet weak var message: UILabel!
     
     @IBOutlet weak var loginButton: DesignableButton!
@@ -26,24 +26,13 @@ class LogInViewController: UIViewController {
         
         // Login
         if let username = self.userNameTextField.text, let password = self.passwordTextField.text{
-//            let isLoginSuccess = tryLogin(username: username, password: password)
-//            if isLoginSuccess {
-//                self.performSegue(withIdentifier: "unwindToUserViewController", sender: self)
-//            } else {
-//                self.message.text = "用户名或密码错误"
-//            }
             if username != "", password != "" {
                 LCUser.logIn(username: username, password: password) { result in
                     switch result {
                     case .success( let user ):
-                        // Query CheckIn days
-                        let query = LCQuery(className: "checkIn")
-                        query.whereKey("username", .equalTo(username))
-                        let checkInCount = query.count().intValue
-                        userInfo["checkInDays"] = String(checkInCount)
-                        
                         
                         // Set User Default
+                        
                         defaults.set(username, forKey: "username")
                         defaults.set(password, forKey: "password")
                         defaults.synchronize()
@@ -76,6 +65,15 @@ class LogInViewController: UIViewController {
                                 let campus = info.get("campus") as! LCString
                                 userInfo["camnpus"] = campus.value
                                 
+                                let userID = info.get("objectId") as! LCString
+                                userInfo["userID"] = userID.value
+                                
+                                // Query CheckIn days
+                                let query = LCQuery(className: "checkIn")
+                                query.whereKey("UserID", .equalTo(userID.value))
+                                let checkInCount = query.count().intValue
+                                userInfo["checkInDays"] = String(checkInCount)
+                                
                                 self.performSegue(withIdentifier: "unwindToUserViewController", sender: self)
                                 
                             case .failure:// Error when In UserClass
@@ -90,7 +88,7 @@ class LogInViewController: UIViewController {
                 }
             }
         }
-
+        
     }
     
     

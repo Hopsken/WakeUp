@@ -13,7 +13,7 @@ import LeanCloud
 class RegisterViewController: UIViewController {
     @IBOutlet weak var usernameTextField: DesignableTextField!
     @IBOutlet weak var passwordTextField: DesignableTextField!
-    @IBOutlet weak var message: UILabel!  
+    @IBOutlet weak var message: UILabel!
     @IBOutlet weak var registerButton: DesignableButton!
     
     @IBAction func registerButtonDidTouch(_ sender: Any) {
@@ -61,5 +61,5 @@ class RegisterViewController: UIViewController {
         }
     }
     
-
+    
 }

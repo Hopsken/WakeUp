@@ -17,6 +17,9 @@
 		9E2EC4111E012D7C0061D948 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC4101E012D7B0061D948 /* Data.swift */; };
 		9E2EC4131E01318C0061D948 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC4121E01318C0061D948 /* UserViewController.swift */; };
 		9E2EC4151E0141CA0061D948 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC4141E0141CA0061D948 /* Configuration.swift */; };
+		9E9A3B601E02BA7C0001DF78 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A3B5F1E02BA7C0001DF78 /* TableViewController.swift */; };
+		9E9A3B641E02D0F30001DF78 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A3B631E02D0F30001DF78 /* UserInfoViewController.swift */; };
+		9E9A3B661E02E5AC0001DF78 /* UserInfoChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A3B651E02E5AC0001DF78 /* UserInfoChangeViewController.swift */; };
 		9EB9BCA41DFD9D1000C0B2C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EB9BCA31DFD9D1000C0B2C8 /* Assets.xcassets */; };
 		9EB9BCE41DFDA41F00C0B2C8 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB9BCE31DFDA41F00C0B2C8 /* CheckInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +38,9 @@
 		9E2EC4101E012D7B0061D948 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		9E2EC4121E01318C0061D948 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		9E2EC4141E0141CA0061D948 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		9E9A3B5F1E02BA7C0001DF78 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		9E9A3B631E02D0F30001DF78 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		9E9A3B651E02E5AC0001DF78 /* UserInfoChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoChangeViewController.swift; sourceTree = "<group>"; };
 		9EB9BCA31DFD9D1000C0B2C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EB9BCE31DFDA41F00C0B2C8 /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		D9BFD85C4FC91E0E9311D0C8 /* Pods-WakeUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WakeUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WakeUp/Pods-WakeUp.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +93,9 @@
 				9E2EC4091E0035670061D948 /* LogInViewController.swift */,
 				9E2EC40B1E003D150061D948 /* RegisterViewController.swift */,
 				9E2EC4121E01318C0061D948 /* UserViewController.swift */,
+				9E9A3B631E02D0F30001DF78 /* UserInfoViewController.swift */,
+				9E9A3B651E02E5AC0001DF78 /* UserInfoChangeViewController.swift */,
+				9E9A3B5F1E02BA7C0001DF78 /* TableViewController.swift */,
 				9E2EC4101E012D7B0061D948 /* Data.swift */,
 				9E2EC4141E0141CA0061D948 /* Configuration.swift */,
 				9EB9BCA31DFD9D1000C0B2C8 /* Assets.xcassets */,
@@ -235,8 +244,11 @@
 				9E2EC4111E012D7C0061D948 /* Data.swift in Sources */,
 				9E2EC40C1E003D150061D948 /* RegisterViewController.swift in Sources */,
 				9E2B50D01DFD7A96007EEA57 /* AppDelegate.swift in Sources */,
+				9E9A3B661E02E5AC0001DF78 /* UserInfoChangeViewController.swift in Sources */,
 				9EB9BCE41DFDA41F00C0B2C8 /* CheckInViewController.swift in Sources */,
 				9E2EC4151E0141CA0061D948 /* Configuration.swift in Sources */,
+				9E9A3B641E02D0F30001DF78 /* UserInfoViewController.swift in Sources */,
+				9E9A3B601E02BA7C0001DF78 /* TableViewController.swift in Sources */,
 				9E2B50D81DFD7A96007EEA57 /* WakeUp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
