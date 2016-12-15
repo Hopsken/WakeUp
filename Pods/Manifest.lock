@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.2.0)
+  - Kingfisher (3.2.1)
   - LeanCloud (10.0.0):
     - LeanCloud/Storage (= 10.0.0)
   - LeanCloud/Storage (10.0.0):
@@ -8,6 +9,7 @@ PODS:
   - TPKeyboardAvoiding (1.3)
 
 DEPENDENCIES:
+  - Kingfisher (~> 3.0)
   - LeanCloud (from `https://github.com/leancloud/swift-sdk.git`)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - TPKeyboardAvoiding
@@ -29,10 +31,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Kingfisher: 64ef28c6d3d6f344e3ae2d7f5c9da80439505d99
   LeanCloud: 72ec52e0d68c3ca886e60c55742b142bfc88d8a0
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
 
-PODFILE CHECKSUM: 4edea565078091b57d14273f37d8388d4d19b290
+PODFILE CHECKSUM: 9b95b3a6878afd3b959dd6f93464ec03fcd8195a
 
 COCOAPODS: 1.1.1
