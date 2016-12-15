@@ -33,7 +33,7 @@ class UserViewController: UIViewController {
             if let imageURLString = userInfo["avatar"] {
                 if imageURLString.hasPrefix("https://") {
                     let url = URL(string: imageURLString)!
-                    avatarImageView.kf.se
+                    avatarImageView.kf.setImage(with: url)
                 }
             }
         } else {
