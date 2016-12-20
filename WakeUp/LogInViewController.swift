@@ -66,18 +66,21 @@ class LogInViewController: UIViewController {
                                 userInfo["camnpus"] = campus.value
                                 
                                 let userID = info.get("objectId") as! LCString
-                                userInfo["userID"] = userID.value
-                                
-                                // Query CheckIn days
-                                let query = LCQuery(className: "checkIn")
-                                query.whereKey("UserID", .equalTo(userID.value))
-                                let checkInCount = query.count().intValue
-                                userInfo["checkInDays"] = String(checkInCount)
-                                
-                                self.performSegue(withIdentifier: "unwindToUserViewController", sender: self)
+                                userInfo["userID"] = userID.value                                
                                 
                             case .failure:// Error when In UserClass
                                 self.message.text = "发生未知错误"
+                            }
+                            
+                            // Query CheckIn Days
+                            if let userID = userInfo["userID"] {
+                                let query = LCQuery(className: "checkIn")
+                                query.whereKey("UserID", .equalTo(userID))
+                                let checkInCount = query.count().intValue
+                                userInfo["checkInDays"] = String(checkInCount)
+                                defaults.set(String(checkInCount), forKey: "checkInDays")
+                                defaults.synchronize()
+                                self.performSegue(withIdentifier: "unwindToUserViewController", sender: self)
                             }
                         }
                         

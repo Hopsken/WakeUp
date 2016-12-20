@@ -32,9 +32,9 @@ class UserViewController: UIViewController{
         if currentUser != nil {
             usernameButton.setTitle(userInfo["username"], for: .normal)
             usernameButton.isEnabled = false
-            checkInDaysLabel.text = userInfo["checkInDays"]
-            totalCheckInDaysLabel.text = userInfo["checkInDays"]
-            creditLabel.text = userInfo["credit"]
+            checkInDaysLabel.text = defaults.value(forKey: "checkInDays") as? String
+            totalCheckInDaysLabel.text = defaults.value(forKey: "checkInDays") as? String
+            creditLabel.text = defaults.value(forKey: "checkInDays") as? String
             
             
             //Get Avatar
@@ -45,7 +45,7 @@ class UserViewController: UIViewController{
                 }
             }
         } else {
-            usernameButton.setTitle("请先登录", for: .normal)
+            usernameButton.setTitle("点此登录", for: .normal)
             usernameButton.isEnabled = true
             checkInDaysLabel.text = "0"
             totalCheckInDaysLabel.text = "0"
@@ -61,9 +61,10 @@ class UserViewController: UIViewController{
             
             defaults.set("", forKey: "username")
             defaults.set("", forKey: "password")
+            defaults.set("", forKey: "checkInDays")
             defaults.synchronize()
             
-            self.usernameButton.setTitle("请先登录", for: .normal)
+            self.usernameButton.setTitle("点此登录", for: .normal)
             self.usernameButton.isEnabled = true
             self.checkInDaysLabel.text = "0"
             self.totalCheckInDaysLabel.text = "0"

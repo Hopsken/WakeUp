@@ -84,12 +84,9 @@ class CheckInViewController: UIViewController {
                                     let userID = info.get("objectId") as! LCString
                                     userInfo["userID"] = userID.value
                                     
-                                    // Query CheckIn days
-                                    let query = LCQuery(className: "checkIn")
-                                    query.whereKey("UserID", .equalTo(userID.value))
-                                    let checkInCount = query.count().intValue
-                                    userInfo["checkInDays"] = String(checkInCount)
-                                    self.CheckInDays.text = userInfo["checkInDays"]
+                                    if let checkIndays = defaults.value(forKey: "checkInDays") {
+                                        self.CheckInDays.text = checkIndays as? String
+                                    }
                                 case .failure:// Error when In UserClass
                                     break
                                 }
@@ -107,7 +104,9 @@ class CheckInViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.CheckInDays.text = userInfo["checkInDays"]
+        if let checkIndays = defaults.value(forKey: "checkInDays") {
+            self.CheckInDays.text = checkIndays as? String
+        }
     }
     
     // MARK: CheckIn
@@ -152,8 +151,8 @@ class CheckInViewController: UIViewController {
     }
     
     func checkInService(user: LCUser) {
-        let username = user.username?.value
-        let userID = user.objectId?.value
+        let username = userInfo["username"]
+        let userID = userInfo["userID"]
         let checkIn = LCObject(className: "checkIn")
         
         checkIn.set("username", value: username)
@@ -166,6 +165,9 @@ class CheckInViewController: UIViewController {
                 query.whereKey("UserID", .equalTo(userID!))
                 let checkInCount = query.count().intValue
                 self.CheckInDays.text = String(checkInCount)
+                userInfo["checkInDays"] = String(checkInCount)
+                defaults.set(String(checkInCount), forKey: "checkInDays")
+                defaults.synchronize()
             case .failure(let error):
                 self.showAlert(info: error.reason!)
             }

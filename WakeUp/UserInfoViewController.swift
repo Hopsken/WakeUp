@@ -8,7 +8,7 @@
 
 import UIKit
 
-var userInfoforCell = ["加载中","加载中","加载中","加载中","加载中"]
+var userInfoforCell = [""]
 let userInfoName = ["昵称", "性别", "生日", "所在校区","签名"]
 
 class UserInfoViewController: UIViewController {
@@ -35,14 +35,12 @@ class UserInfoViewController: UIViewController {
             }
         }
         
-        userInfoforCell = ["加载中","加载中","加载中","加载中","加载中"]
-        
         userInfoforCell = [
-            userInfo["username"]!,
-            userInfo["sex"]! ,
-            userInfo["birthday"]! ,
-            userInfo["campus"]! ,
-            userInfo["signature"]!
+            userInfo["username"] ?? "加载中",
+            userInfo["sex"] ?? "加载中" ,
+            userInfo["birthday"] ?? "加载中" ,
+            userInfo["campus"] ?? "加载中" ,
+            userInfo["signature"] ?? "加载中",
         ]
     }
     

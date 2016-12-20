@@ -6,6 +6,8 @@ target 'WakeUp' do
     pod 'TPKeyboardAvoiding'
     pod 'Kingfisher', '~> 3.0'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+    pod 'SwiftyJSON'
+    pod 'DGElasticPullToRefresh'
 end
 
 post_install do |installer|

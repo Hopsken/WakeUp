@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2225E9DBF914D195C2636E82 /* Pods_WakeUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E45E9DDDC0894BF953014E /* Pods_WakeUp.framework */; };
+		9E15553E1E08F3EA00C2BB69 /* WUService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15553D1E08F3EA00C2BB69 /* WUService.swift */; };
+		9E1555411E0908CD00C2BB69 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1555401E0908CD00C2BB69 /* PostsViewController.swift */; };
+		9E1555441E0910D800C2BB69 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1555431E0910D800C2BB69 /* PostTableViewCell.swift */; };
 		9E2B50D01DFD7A96007EEA57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2B50CF1DFD7A96007EEA57 /* AppDelegate.swift */; };
 		9E2B50D51DFD7A96007EEA57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2B50D31DFD7A96007EEA57 /* Main.storyboard */; };
 		9E2B50D81DFD7A96007EEA57 /* WakeUp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E2B50D61DFD7A96007EEA57 /* WakeUp.xcdatamodeld */; };
@@ -27,6 +30,9 @@
 /* Begin PBXFileReference section */
 		042B567014390DE2D4543269 /* Pods-WakeUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WakeUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WakeUp/Pods-WakeUp.debug.xcconfig"; sourceTree = "<group>"; };
 		13E45E9DDDC0894BF953014E /* Pods_WakeUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WakeUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E15553D1E08F3EA00C2BB69 /* WUService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WUService.swift; sourceTree = "<group>"; };
+		9E1555401E0908CD00C2BB69 /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		9E1555431E0910D800C2BB69 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		9E2B50CC1DFD7A96007EEA57 /* WakeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2B50CF1DFD7A96007EEA57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E2B50D41DFD7A96007EEA57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +96,8 @@
 			children = (
 				9E2B50CF1DFD7A96007EEA57 /* AppDelegate.swift */,
 				9EB9BCE31DFDA41F00C0B2C8 /* CheckInViewController.swift */,
+				9E1555401E0908CD00C2BB69 /* PostsViewController.swift */,
+				9E1555431E0910D800C2BB69 /* PostTableViewCell.swift */,
 				9E2EC4091E0035670061D948 /* LogInViewController.swift */,
 				9E2EC40B1E003D150061D948 /* RegisterViewController.swift */,
 				9E2EC4121E01318C0061D948 /* UserViewController.swift */,
@@ -98,6 +106,7 @@
 				9E9A3B5F1E02BA7C0001DF78 /* TableViewController.swift */,
 				9E2EC4101E012D7B0061D948 /* Data.swift */,
 				9E2EC4141E0141CA0061D948 /* Configuration.swift */,
+				9E15553D1E08F3EA00C2BB69 /* WUService.swift */,
 				9EB9BCA31DFD9D1000C0B2C8 /* Assets.xcassets */,
 				9E2B50D31DFD7A96007EEA57 /* Main.storyboard */,
 				9E2B50DB1DFD7A96007EEA57 /* LaunchScreen.storyboard */,
@@ -145,7 +154,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Hopsken;
 				TargetAttributes = {
 					9E2B50CB1DFD7A96007EEA57 = {
@@ -242,9 +251,12 @@
 				9E2EC4131E01318C0061D948 /* UserViewController.swift in Sources */,
 				9E2EC40A1E0035670061D948 /* LogInViewController.swift in Sources */,
 				9E2EC4111E012D7C0061D948 /* Data.swift in Sources */,
+				9E15553E1E08F3EA00C2BB69 /* WUService.swift in Sources */,
 				9E2EC40C1E003D150061D948 /* RegisterViewController.swift in Sources */,
 				9E2B50D01DFD7A96007EEA57 /* AppDelegate.swift in Sources */,
 				9E9A3B661E02E5AC0001DF78 /* UserInfoChangeViewController.swift in Sources */,
+				9E1555441E0910D800C2BB69 /* PostTableViewCell.swift in Sources */,
+				9E1555411E0908CD00C2BB69 /* PostsViewController.swift in Sources */,
 				9EB9BCE41DFDA41F00C0B2C8 /* CheckInViewController.swift in Sources */,
 				9E2EC4151E0141CA0061D948 /* Configuration.swift in Sources */,
 				9E9A3B641E02D0F30001DF78 /* UserInfoViewController.swift in Sources */,
@@ -316,7 +328,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -360,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

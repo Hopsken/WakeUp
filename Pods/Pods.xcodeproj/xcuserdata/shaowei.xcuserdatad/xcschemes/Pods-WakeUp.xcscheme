@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E87FDB52F7CB58A465BE6E8980C7477A"
+               BlueprintIdentifier = "65C9F6C79C3A850FE8F56DCA0DC1F0D0"
                BuildableName = "Pods_WakeUp.framework"
                BlueprintName = "Pods-WakeUp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E87FDB52F7CB58A465BE6E8980C7477A"
+            BlueprintIdentifier = "65C9F6C79C3A850FE8F56DCA0DC1F0D0"
             BuildableName = "Pods_WakeUp.framework"
             BlueprintName = "Pods-WakeUp"
             ReferencedContainer = "container:Pods.xcodeproj">

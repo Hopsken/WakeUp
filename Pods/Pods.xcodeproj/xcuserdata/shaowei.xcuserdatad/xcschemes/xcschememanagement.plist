@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DGElasticPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TPKeyboardAvoiding.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +47,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2E7A979E55F620639F461D52494DCB96</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3E01143F3C6C5F4C651109AE4A7F4DAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4388607D67FA1DA046EF4E99D2D59F8B</key>
+		<key>47D07B436D82BB983C8429FF84F919A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5233A0F2DAD5063ED08302659486FBDF</key>
+		<key>65C9F6C79C3A850FE8F56DCA0DC1F0D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1F53F0E3FB7ABAA502FECA795719735</key>
+		<key>B18C56EF768362AB3AE9870A5969102A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7E8B2E5B818810B0E0BD3A365C23F00</key>
+		<key>DBF5AB5CA1591541C9DBEDF28443C9E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E87FDB52F7CB58A465BE6E8980C7477A</key>
+		<key>DD244A4DA9A4B1694194E3362F603412</key>
 		<dict>
 			<key>primary</key>
 			<true/>
